@@ -6,10 +6,10 @@ spark = spark_session()
 
 
 df = (spark.read
-           .format('csv')
+           .format('excel')
            .option('header',True)
            .option('delimiter',',')
            .option('inferSchema',True)
-           .load('/Volumes/workspace/default/landing/*.csv'))
+           .load('/Volumes/workspace/default/landing/*.xlsx'))
 
 df.write.format('delta').saveAsTable('b_sttpt.base_clie_full')
