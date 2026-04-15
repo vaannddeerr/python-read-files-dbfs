@@ -1,4 +1,4 @@
-# from pyspark.sql import functions as F
+from pyspark.sql import functions as F
 from spark_dataset import spark_session
 
 
@@ -11,6 +11,6 @@ df = (spark.read
            .option('delimiter',',')
            .option('inferSchema','true')
            .option('treatEmptyValuesAsNulls','true')
-           .load('/Volumes/workspace/default/landing/*.xlsx'))
+           .load('/Volumes/workspace/default/landing/*.xlsx')).where(F.col('_c0') != '_c0')
 
 df.write.format('delta').mode('overwrite').saveAsTable('base_clie_full')
