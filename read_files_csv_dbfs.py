@@ -11,6 +11,9 @@ df = (spark.read
            .option('delimiter',',')
            .option('inferSchema','true')
            .option('treatEmptyValuesAsNulls','true')
-           .load('/Volumes/workspace/default/landing/*.xlsx')).where(F.col('_c0') != '_c0')
+           .load('/Volumes/workspace/default/landing/*.xlsx')).filter(F.col('_c1') != '_c1')
 
-df.write.format('delta').mode('overwrite').saveAsTable('base_clie_full')
+(df.write
+   .format('delta')
+   .mode('overwrite')
+   .saveAsTable('base_clie_full'))
