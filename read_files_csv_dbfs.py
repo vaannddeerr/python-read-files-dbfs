@@ -7,7 +7,7 @@ spark = spark_session()
 
 df = (spark.read
            .format('excel')
-           .option('header',True)
+           .option('header',False)
            .option('delimiter',',')
            .option('inferSchema',True)
            .load('/Volumes/workspace/default/landing/*.xlsx'))
