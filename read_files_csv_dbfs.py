@@ -12,4 +12,4 @@ df = (spark.read
            .option('inferSchema',True)
            .load('/Volumes/workspace/default/landing/*.xlsx'))
 
-df.write.format('delta').saveAsTable('b_sttpt.base_clie_full')
+df.write.format('delta').saveAsTable('base_clie_full')
