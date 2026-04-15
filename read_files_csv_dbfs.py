@@ -1,5 +1,8 @@
 # from pyspark.sql import functions as F
-from spark_dataset import spark
+from spark_dataset import spark_session
+
+
+spark = spark_session()
 
 
 df = (spark.read
