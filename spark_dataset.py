@@ -1,6 +1,6 @@
 from pyspark.sql import SparkSession
 
-def spark():
+def spark_session():
     try:
         # Se já existe (Databricks)
         spark
